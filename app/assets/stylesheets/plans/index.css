@@ -1,0 +1,61 @@
+.plan {
+  width: 500px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.plan > div {
+  height: 60px;
+  margin: 12px 0;
+  padding: 2px;
+  border: solid 1px gray;
+  border-radius: 5px;
+  color: rgb(49, 49, 49);
+  background-color: rgb(251, 245, 238);
+  box-shadow:
+  -1px 1px 2px 0.5px rgb(175, 175, 175),
+  inset -2px 2px 4px 2px rgb(253, 251, 248);
+}
+
+span {
+  color: black;
+  font-size: 16px;
+}
+
+.plan-main {
+  width: 430px;
+  text-align: center;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.button {
+  height: 60px;
+  width: 60px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 55px;
+  color: black;
+}
+
+.plan-new {
+  height: 45px;
+  width: 45px;
+  margin: 12px 200px;
+  border: solid 1px gray;
+  color: rgb(75, 75, 75);
+  background-color: rgb(251, 245, 238);
+  box-shadow:
+  -1px 1px 2px 0.5px rgb(175, 175, 175),
+  inset -2px 2px 4px 2px rgb(253, 251, 248);
+  border-radius: 22.5px;
+  text-align: center;
+  line-height: 42px;
+  font-size: 18px;
+}
+
+.plan-new h2 {
+  font-size: 24px;
