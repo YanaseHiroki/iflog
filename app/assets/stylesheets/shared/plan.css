@@ -1,0 +1,5 @@
+textarea[id="plan_trigger"],
+textarea[id="plan_habit"] {
+  height: 4em;
+  padding: .4em;
+}

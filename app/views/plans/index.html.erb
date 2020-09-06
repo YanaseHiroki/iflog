@@ -4,77 +4,43 @@
     <div class="title-container">
       <h1 class="title">計画</h1>
     </div>
-    <div class="plan">
-      <div class="plan-main">
+    <% if @plans.present? %>
+      <% @plans.each do |plan| %>
+        <div class="plan">
+          <%= link_to(plan_path(plan.id), method: :get, class: "plan-main") do %>
+              <div>
+                1日<span><%= "#{plan.target}回、#{plan.trigger}" %></span>とき
+              </div>
+              <div>
+                <span><%= plan.habit %></span>する
+              </div>
+          <% end %>
+          <%= link_to(root_path, method: :get, class: "button") do %>
+            <h2>記録</h2>
+          <% end %>
+        </div>
+      <% end %>
+    <% else %>
+      <div class="plan">
+        <%= link_to(new_plan_path, method: :get, class: "plan-main") do %>
         <div>
-          <span><%= "「あいうえおかきくけこさしすせそたちつてと」" %></span>したとき
+          (例)1日<%= "○回、日常的な行動をしたら" %>
         </div>
         <div>
-          <span><%= "「あいうえおかきくけこさしすせそたちつてと」" %></span>できるか
+          <%= "身につけたい習慣をする" %>
         </div>
+        <% end %>
+        <%= link_to(new_plan_path, method: :get, class: "button") do %>
+          <h2>作成</h2>
+        <% end %>
       </div>
-      <div class="button">
-        <h2>記録</h2>
-      </div>
-    </div>
-      <%# 繰返s %>
-    <div class="plan">
-      <div class="plan-main">
-        <div>
-          <span><%= "「あいうえおかきくけこさしすせそたちつてと」" %></span>したとき
-        </div>
-        <div>
-          <span><%= "「あいうえおかきくけこさしすせそたちつてと」" %></span>できるか
-        </div>
-      </div>
-      <div class="button">
-        <h2>記録</h2>
-      </div>
-    </div>
-    <div class="plan">
-      <div class="plan-main">
-        <div>
-          <span><%= "「あいうえおかきくけこさしすせそたちつてと」" %></span>したとき
-        </div>
-        <div>
-          <span><%= "「あいうえおかきくけこさしすせそたちつてと」" %></span>できるか
-        </div>
-      </div>
-      <div class="button">
-        <h2>記録</h2>
-      </div>
-    </div>
-    <div class="plan">
-      <div class="plan-main">
-        <div>
-          <span><%= "「あいうえおかきくけこさしすせそたちつてと」" %></span>したとき
-        </div>
-        <div>
-          <span><%= "「あいうえおかきくけこさしすせそたちつてと」" %></span>できるか
-        </div>
-      </div>
-      <div class="button">
-        <h2>記録</h2>
-      </div>
-    </div>
-    <div class="plan">
-      <div class="plan-main">
-        <div>
-          <span><%= "「あいうえおかきくけこさしすせそたちつてと」" %></span>したとき
-        </div>
-        <div>
-          <span><%= "「あいうえおかきくけこさしすせそたちつてと」" %></span>できるか
-        </div>
-      </div>
-      <div class="button">
-        <h2>記録</h2>
-      </div>
-    </div>
-      <%# 繰返s %>
+    <% end %>
     <div class="plan-new">
-      <div>
+    <%= link_to(new_plan_path, method: :get, class: "link") do %>
+      <div class="plus">
         +
       </div>
+    <% end %>
     </div>
   </div>
 </main>

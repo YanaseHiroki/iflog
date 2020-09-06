@@ -1,16 +1,22 @@
 <%# CSS・・・assets/stylesheets/shared/header.css %>
 <header class='header'>
   <div class='nav'>
-    <div class="icons">
-      <%= link_to image_tag("icon.png", class:"iflog-icon"), "/" %>
+    <%= link_to(root_path, method: :get, class: "icons") do %>
+      <%= image_tag("icon.png", class:"iflog-icon") %>
       <div class="iflog">IFLOG</div>
-    </div>
+    <% end %>
     <ul class='lists'>
       <% if user_signed_in? %>
-        <li><%= link_to "#{current_user.name}", destroy_user_session_path, method: :delete, class: "user-nickname" %></li>
+        <%= link_to(destroy_user_session_path, method: :delete, class: "user-nickname") do %>
+          <li><%= current_user.name %></li>
+        <% end %>
       <% else %>
-        <li><%= link_to 'ログイン', new_user_session_path, method: :get, class: "login" %></li>
-        <li><%= link_to '新規登録', new_user_registration_path, method: :get, class: "sign-up" %></li>
+        <%= link_to(new_user_session_path, method: :get, class: "login") do %>
+          ログイン
+        <% end %>
+        <%= link_to(new_user_registration_path, method: :get, class: "sign-up") do %>
+          新規登録
+        <% end %>
       <% end %>
     </ul>
   </div>
