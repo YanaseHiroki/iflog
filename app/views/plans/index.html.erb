@@ -9,10 +9,10 @@
         <div class="plan">
           <%= link_to(plan_path(plan.id), method: :get, class: "plan-main") do %>
               <div>
-                1日<span><%= "#{plan.target}回、#{plan.trigger}" %></span>とき
+                1日<%= "#{plan.target}回、#{plan.trigger}" %>
               </div>
               <div>
-                <span><%= plan.habit %></span>する
+                <%= plan.habit %>
               </div>
           <% end %>
           <%= link_to(root_path, method: :get, class: "button") do %>
