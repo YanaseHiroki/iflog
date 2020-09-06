@@ -1,0 +1,11 @@
+<%= render "shared/header" %>
+<main>
+  <div class="main">
+    <div class="title-container">
+      <h1 class="title">編集</h1>
+    </div>
+    <%= render "shared/plan" %>
+    <%= render "shared/form" %>
+    <%= link_to "計画を削除する", plan_path(params[:id]), method: :delete, data: { confirm: "この計画を削除しますか？" }, class: "hyper-link" %>
+  </div>
+</main> 

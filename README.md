@@ -1,7 +1,5 @@
 # IFLOG
 
-# フリマアプリ FURIMA_28335
-
 ## 概要
 ### このアプリでできること
 
@@ -16,7 +14,7 @@
 ## 本番環境(デプロイ先　テストアカウント＆ID)
 | 項目  | 情報 |
 | --  | --  |
-| 自身のフリマアプリのURL | 　　 |
+| 自身のオリジナルアプリのURL | まだデプロイしていません |
 | Basic認証のID |  administrator |
 | Basic認証のパスワード |  31415926535 |
 | 出品者用のメールアドレス | sample@sample.com |
@@ -68,7 +66,7 @@
 | ------------------ | ------ | ----------- |
 | email              | string | null: false |
 | encrypted_password | string | null: false |
-| nickname           | string | null: false |
+| name               | string | null: false |
 
 #### Association
 

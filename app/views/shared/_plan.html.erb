@@ -1,0 +1,13 @@
+<div class="plan">
+  <%= link_to(edit_plan_path(@plan.id), method: :get, class: "plan-main") do %>
+      <div>
+        <span><%= "#{@plan.target}回、#{@plan.trigger}" %>
+      </div>
+      <div>
+        <%= @plan.habit %>
+      </div>
+  <% end %>
+  <%= link_to(root_path, method: :get, class: "button") do %>
+    <h2>記録</h2>
+  <% end %>
+</div>

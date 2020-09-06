@@ -16,9 +16,16 @@
 * {
     box-sizing: border-box;
   }
+  
+html {
+  height: 100%;
+  background-color: rgb(250, 240, 225);
+}
 
 body {
-  background-color: rgb(250, 240, 225);
+  height: 100%; 
+  
+  font-size: 1.5em;
 }
   
 header {
@@ -27,17 +34,97 @@ header {
 
 main {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .title-container {
   text-align: center;
-  margin: 24px
+  margin: .5em;
 }
 .title {
-  font-size: 24px;
-  font-weight: bold;
-  padding-top: 12px;
+  font-size: 1.5em;
+  /* font-weight: bold; */
+  padding-top: .7em;
 }
 
+.textarea {
+  height: 2em;
+  margin: .5em;
+  padding-left: .5em;
+
+  text-align: center;
+
+  border: solid 1px gray;
+  border-radius: 1em;
+}
+
+.field {
+  margin-top: .9em;
+  border-radius: .3em;
+
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.field input {
+  height: 2em;
+  margin: .5em;
+  padding-left: .5em;
+
+  border: solid 1px gray;
+  border-radius: 1em;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.actions input {
+  height: 3.8em;
+  margin: .9em;
+
+  text-align: center;
+  color: black;
+
+  border: solid 1px gray;
+  border-radius: .7em;
+
+  box-shadow:
+  -1px 1px 2px 0.5px rgb(175, 175, 175),
+  inset -2px 2px 4px 2px rgb(253, 251, 248);
+
+
+  background-color: rgb(251, 245, 238);
+}
+
+.checks {
+  display: flex;
+  align-items: center;
+}
+
+label, input[type='checkbox'] {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+.hyper-link {
+  padding: .5em 1em;
+  margin: 1em 0;
+
+  border: 1px solid gray;
+  border-radius: .7em;
+  box-shadow:
+  -1px 1px 2px 0.5px rgb(175, 175, 175),
+  inset -2px 2px 4px 2px rgb(253, 251, 248);
+
+  background-color: rgb(251, 245, 238);
+}

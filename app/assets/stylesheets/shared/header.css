@@ -1,38 +1,45 @@
 
 .header {
-  width: 100vw;
+  width: 100%;
   display: flex;
   flex-direction: column;
 }
 
+.icons {  
+  display: flex;
+  align-items: center;
+  color: #000;
+  text-decoration: none;
+}
 .iflog-icon {
-  width: 40px;
-  margin-top: 1vw;
-  margin-left: 1vw;
-  filter: drop-shadow(0px 2px 2px rgb(100, 100, 100));
+  height: 1.9em;
+  margin: .5em;
+  filter: drop-shadow(0em .2em .05em rgb(100, 100, 100));
 }
 
+.iflog {
+  font-size: 1.2em;
+}
 .nav {
-  font-size: 18px;
+  font-size: 1.2em;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   flex-wrap: wrap;
-  width: 100%;
 }
 
 .lists {
   display: flex;
   list-style: none;
   align-items: center;
-  margin-right: 3vw;
+  margin-right: 1em;
 }
 
 
 .user-nickname {
   text-decoration: none;
-  margin-right: 3vw;
+  margin-right: 1em;
   color: #000;
-  font-weight: bold;
 }
 
 
@@ -43,8 +50,7 @@
 
 .login {
   text-decoration: none;
-  line-height: 32px;
-  margin-right: 3vw;
+  margin-right: 1em;
   color: #000;
 }
 

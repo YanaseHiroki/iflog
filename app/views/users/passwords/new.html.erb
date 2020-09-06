@@ -1,0 +1,22 @@
+<%= render "shared/header" %>
+<main>
+  <div class="main">
+    <div class="title-container">
+      <h1 class="title">パスワード変更</h1>
+    </div>
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+      <%= render "users/shared/error_messages", resource: resource %>
+
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div><br />
+
+      <div class="actions">
+        <%= f.submit "　確認のメールを送信する　" %>
+      </div>
+    <% end %><br />
+
+    <%= render "users/shared/links" %>
+  </div>
+</main>
