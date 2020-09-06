@@ -1,0 +1,9 @@
+.target,
+.trigger,
+.habit {
+  display: flex;
+  align-items: center;
+}
+
+.textarea {
+}
