@@ -1,0 +1,11 @@
+    <%= form_with model: @log, url: plan_logs_path, local: true do |f| %>
+      <div class="date-form">
+        日付：<%= f.date_select :date %>
+      </div>
+      <div class="result-form">
+        回数：<%= f.number_field :result, class:"textarea", maxlength:"2" %>回
+      </div>
+      <div class="actions">
+        <%= f.submit "　記録　" %>
+      </div>
+    <% end %>

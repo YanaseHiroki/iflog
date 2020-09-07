@@ -20,7 +20,7 @@ class PlansController < ApplicationController
 
   def show
     # logをすべてとってくる
-    @plans = Plan.all
+    @logs = Log.all
     @ratios = ['◎', '◎', '◎', '◎', '◎', '◎', '◎']
     @point = 100
   end

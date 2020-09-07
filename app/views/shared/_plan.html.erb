@@ -7,7 +7,7 @@
         <%= @plan.habit %>
       </div>
   <% end %>
-  <%= link_to(root_path, method: :get, class: "button") do %>
+  <%= link_to(new_plan_log_path(@plan.id), method: :get, class: "button") do %>
     <h2>記録</h2>
   <% end %>
 </div>

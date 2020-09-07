@@ -2,10 +2,13 @@
 <main>
   <div class="main">
     <div class="title-container">
-      <h1 class="title">達成度</h1>
+      <h1 class="title">記録</h1>
     </div>
 
     <%# 最近の7日のlogを、１日あたりの達成率で表示する %>
+    <div class="summary">
+      <%= "計画「１日#{@plan.target}回、#{@plan.trigger}#{@plan.habit}」" %>
+    </div>
     <table border="1" width=100%>
       <thead>
         <tr>
@@ -22,10 +25,6 @@
         </tr>
       </tbody>
     </table>
-    <div class="achievement">
-      Score <span class="point"><%= @point %></span>
-    </div>
-    <%= render "shared/plan" %>
-    <%= link_to "計画を編集する", edit_plan_path(params[:id]), class: "hyper-link" %>
+    <%= render "shared/log" %>
   </div>
 </main>
