@@ -45,18 +45,21 @@ class PlansController < ApplicationController
       render :show
     end
   end
-
+  
   def find_plan
-    @plan = Plan.find(params[:id])
+    @plan = Plan.find_by_id(params[:id])
+    redirect_to root_path if @plan.nil?
   end
   
   private
-
+  
   def plan_params
     params.require(:plan).permit(
       :target,
       :trigger,
       :habit
+    ).merge(
+      user_id: current_user.id
     )
   end
 

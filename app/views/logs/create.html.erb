@@ -1,2 +1,16 @@
-<h1>Logs#create</h1>
-<p>Find me in app/views/logs/create.html.erb</p>
+<%= render "shared/header" %>
+<main>
+  <div class="main">
+    <div class="title-container">
+      <h1 class="title">今日もおつかれさまでした！</h1>
+    </div>
+    <%# 連続日数contdays、ブランク日数（負の数）に応じたメッセージ %>
+    <% if true %>
+      <%= "○○日連続です！" %>
+    <% else %>
+      <%= "○○日ぶりの復帰です！" %>
+    <% end %>
+    <%# Userテーブルに画像のカラムを追加してここでuploadして表示 %>
+    <%# @user.image %>
+  </div>
+</main>

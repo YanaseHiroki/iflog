@@ -38,6 +38,13 @@ main {
   flex-wrap: wrap;
 }
 
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
 .title-container {
   text-align: center;
   margin: .5em;

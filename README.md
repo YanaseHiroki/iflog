@@ -91,9 +91,11 @@
 
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
+| user_id | references | null: false, foreign_key: true |
 | plan_id | references | null: false, foreign_key: true |
-| date    | date       | null: false                    |
+| target  | integer    | null: false                    |
 | result  | integer    | null: false                    |
+| date    | date       | null: false                    |
 
 #### Association
 

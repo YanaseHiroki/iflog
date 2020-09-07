@@ -13,20 +13,24 @@
 ActiveRecord::Schema.define(version: 2020_09_06_124614) do
 
   create_table "logs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
     t.bigint "plan_id", null: false
     t.integer "result", null: false
     t.date "date", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["plan_id"], name: "index_logs_on_plan_id"
+    t.index ["user_id"], name: "index_logs_on_user_id"
   end
 
   create_table "plans", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
     t.string "habit", null: false
     t.string "trigger", null: false
     t.integer "target", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_plans_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -43,4 +47,6 @@ ActiveRecord::Schema.define(version: 2020_09_06_124614) do
   end
 
   add_foreign_key "logs", "plans"
+  add_foreign_key "logs", "users"
+  add_foreign_key "plans", "users"
 end

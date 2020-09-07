@@ -7,7 +7,7 @@
     <% end %>
     <ul class='lists'>
       <% if user_signed_in? %>
-        <%= link_to(destroy_user_session_path, method: :delete, class: "user-nickname") do %>
+        <%= link_to(user_path(id: current_user.id), class: "user-nickname") do %>
           <li><%= current_user.name %></li>
         <% end %>
       <% else %>
