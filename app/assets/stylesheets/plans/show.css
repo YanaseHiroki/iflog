@@ -1,20 +1,8 @@
-table {
-  margin-top: 2em;
-  line-height: 2em;
-
-  text-align: center;
-
-  box-shadow:
-  -1px 1px 2px 0.5px rgb(175, 175, 175),
-  inset -2px 2px 4px 2px rgb(253, 251, 248);
-
-  background-color: rgb(251, 245, 238);
-}
-
 .achievement {
   text-align: center;
   font-style: italic;
 }
-.point {
+.average {
   font-size: 4em;
+  margin: .1em;
 }

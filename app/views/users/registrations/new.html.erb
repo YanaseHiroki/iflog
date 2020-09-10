@@ -22,7 +22,7 @@
         <% if @minimum_password_length %>
         <em>(<%= @minimum_password_length %>文字以上)</em>
         <% end %><br />
-        <%= f.password_field :password, autocomplete: "new-password" %>
+        <%= f.password_field :password, placeholder:"英数字を含む", autocomplete: "new-password" %>
       </div>
 
       <div class="field">
@@ -31,7 +31,7 @@
       </div><br />
 
       <div class="actions">
-        <%= f.submit "　新規登録　" %>
+        <%= f.submit "　登録　" %>
       </div>
     <% end %><br />
     

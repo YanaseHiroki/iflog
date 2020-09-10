@@ -1,0 +1,12 @@
+<%= render "shared/header" %>
+<main>
+  <div class="main">
+    <div class="title-container">
+      <h1 class="title">アカウント</h1>
+    </div>
+    <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "hyper-link" %>
+    <%= link_to "名前を変更する(実装予定)", '#', class: "hyper-link" %>
+    <%= link_to "パスワードを変更する", new_user_password_path, class: "hyper-link" %>
+    <%= link_to "アカウントを削除する", user_registration_path, method: :delete, data: { confirm: "アカウントを削除しますか？" }, class: "hyper-link" %>
+  </div>
+</main>

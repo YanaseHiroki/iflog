@@ -19,10 +19,21 @@ class PlansController < ApplicationController
   end
 
   def show
-    # logをすべてとってくる
-    @plans = Plan.all
-    @ratios = ['◎', '◎', '◎', '◎', '◎', '◎', '◎']
-    @point = 100
+    require 'date'
+    @day = Date.today - 6
+    target = @plan.target
+    @logs = Log.where(plan_id: params[:id])
+    scores = []
+    7.times do |i|
+      result = @logs.find_by(date: Date.today - i)
+      if result.nil?
+        scores[i] = 0
+      else
+        scores[i] = 100 * result.result / target
+      end
+      scores[i] = 100 if scores[i] > 100
+    end
+    @scores = scores.reverse
   end
 
   def edit
@@ -45,18 +56,21 @@ class PlansController < ApplicationController
       render :show
     end
   end
-
+  
   def find_plan
-    @plan = Plan.find(params[:id])
+    @plan = Plan.find_by_id(params[:id])
+    redirect_to root_path if @plan.nil?
   end
   
   private
-
+  
   def plan_params
     params.require(:plan).permit(
       :target,
       :trigger,
       :habit
+    ).merge(
+      user_id: current_user.id
     )
   end
 

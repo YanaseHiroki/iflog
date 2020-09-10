@@ -1,0 +1,26 @@
+<%= render "shared/header" %>
+<main>
+  <div class="main">
+    <div class="title-container">
+      <h1 class="title">編集</h1>
+    </div>
+
+    <%# 最近の7日間の達成回数を表示する %>
+    <div class="summary">
+      <%= "１日#{@plan.target}回、#{@plan.trigger}#{@plan.habit}" %>
+    </div>
+    <%= render "shared/table" %>
+    <%= form_with model: @log, url: plan_logs_path, local: true do |f| %>
+    <%= render 'shared/error_messages', model: f.object %>
+      <div class="date-form">
+        <%= f.date_field :date, value:Date.today %>
+      </div>
+      <div class="result-form">
+        <%= f.number_field :result, value: @plan.target, class:"textarea", min:"1" %>回
+      </div>
+      <div class="actions">
+        <%= f.submit "　更新　" %>
+      </div>
+    <% end %>
+  </div>
+</main>
