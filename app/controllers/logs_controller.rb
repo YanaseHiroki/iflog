@@ -7,36 +7,95 @@ class LogsController < ApplicationController
   end
 
   def new
-    # logをすべてとってくる
-    @logs = Log.all
-    @ratios = ['◎', '◎', '◎', '◎', '◎', '◎', '◎']
     @log = Log.new
+    # for shared/table
+    require 'date'
+    @day = Date.today - 6
+    target = @plan.target
+    @logs = Log.where(plan_id: @plan.id)
+    scores = []
+    7.times do |i|
+      result = @logs.find_by(date: @day + i)
+      if result.nil?
+        scores[i] = ''
+      else
+        scores[i] = result.result
+      end
+    end
+    @scores = scores
   end
   
   
   def create
+    # 記録を作成
     @log = Log.new(log_params)
+    
+    # for shared/table
+    require 'date'
+    @day = Date.today - 6
+    target = @plan.target
+    @logs = Log.where(plan_id: @plan.id)
+    scores = []
+    7.times do |i|
+      result = @logs.find_by(date: @day + i)
+      if result.nil?
+        scores[i] = ''
+      else
+        scores[i] = result.result
+      end
+    end
+    @scores = scores
+    # 連続日数を表示
+    @days = 0
+    @yesterday = @log.date - 1
+    while Log.find_by(date: @yesterday).nil?
+      @yesterday -= 1
+      @days -= 1
+      if @yesterday < @log.date - 100
+        @days = 0
+        break
+      end
+    end
+    @yesterday = Date.today - 1
+    while Log.find_by(date: @yesterday).nil? == false
+      @yesterday -= 1
+      @days += 1
+    end
+    @user = User.find_by_id(current_user.id)
+    # 記録を保存
     if @log.valid?
       @log.save
     else
-      redirect_to root_path
+      render :edit
     end
   end
-
+  
   def show
   end
-
+  
   def edit
-    @log = Log.find(params[:id])
-    redirect_to root_path if @log.invalid?
+
+    @log = Log.new
+    # for shared/table
+    require 'date'
+    @day = Date.today - 6
+    target = @plan.target
+    @logs = Log.where(plan_id: @plan.id)
+    scores = []
+    7.times do |i|
+      result = @logs.find_by(date: @day + i)
+      if result.nil?
+        scores[i] = ''
+      else
+        scores[i] = result.result
+      end
+    end
+    @scores = scores
   end
   
   def update
-    if @log.update(log_params)
-      redirect_to root_path
-    else
-      render :edit
-    end
+    @log.update(log_params)
+    redirect_to new_plan_log_path(@plan.id)
   end
 
   def destroy

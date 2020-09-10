@@ -1,0 +1,17 @@
+    <table border="1" width=100%>
+      <thead>
+        <tr>
+          <% 7.times do |i| %>
+            <td> <%= l @day + i %> </td>
+          <% end %>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <% @scores.each do |score| %>
+              <td> <%= score %> </td>
+          <% end %>
+        </tr>
+      </tbody>
+    </table>
+    

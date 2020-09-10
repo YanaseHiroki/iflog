@@ -2,30 +2,13 @@
 <main>
   <div class="main">
     <div class="title-container">
-      <h1 class="title">達成度</h1>
+      <h1 class="title">達成率</h1>
     </div>
-    <%= render "shared/plan" %>
-
-    <%# 最近の7日のlogを、１日あたりの達成率で表示する %>
-    <table border="1" width=100%>
-      <thead>
-        <tr>
-          <% 7.times do |i| %>
-            <td> <%= i + 1 %> </td>
-          <% end %>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <% @ratios.each do |ratio| %>
-              <td> <%= ratio %> </td>
-          <% end %>
-        </tr>
-      </tbody>
-    </table>
     <div class="achievement">
-      Score <span class="point"><%= @point %></span>
+      Ave.<span class="average"><%= @scores.sum / @scores.size %></span>
     </div>
-    <%= link_to "計画を編集する", edit_plan_path(params[:id]), class: "hyper-link" %>
+    <%= render "shared/table" %>
+    <%= render "shared/plan" %>
+    <%= link_to "計画を編集する", edit_plan_path(params[:id]), class: " hyper-link" %>
   </div>
 </main>

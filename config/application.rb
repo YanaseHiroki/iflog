@@ -19,11 +19,17 @@ module Iflog
     end
 
     config.i18n.default_locale = :ja
-    config.time_zone = 'Asia/Tokyo'
-
+    
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+  end
+end
+
+module TimeFormatSandbox
+  class Application < Rails::Application
+    config.time_zone = 'Asia/Tokyo'
+    config.i18n.default_locale = :ja
   end
 end

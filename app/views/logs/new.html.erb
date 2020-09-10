@@ -5,36 +5,21 @@
       <h1 class="title">記録</h1>
     </div>
 
-    <%# 最近の7日のlogを、１日あたりの達成率で表示する %>
+    <%# 最近の7日間の達成回数を表示する %>
     <div class="summary">
-      <%= "計画「１日#{@plan.target}回、#{@plan.trigger}#{@plan.habit}」" %>
+      <%= "１日#{@plan.target}回、#{@plan.trigger}#{@plan.habit}" %>
     </div>
-    <table border="1" width=100%>
-      <thead>
-        <tr>
-          <% 7.times do |i| %>
-            <td> <%= i + 1 %> </td>
-          <% end %>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <% @ratios.each do |ratio| %>
-              <td> <%= ratio %> </td>
-          <% end %>
-        </tr>
-      </tbody>
-    </table>
+    <%= render "shared/table" %>
     <%= form_with model: @log, url: plan_logs_path, local: true do |f| %>
     <%= render 'shared/error_messages', model: f.object %>
       <div class="date-form">
-        <%= f.date_select :date %>
+        <%= f.date_field :date, value:Date.today %>
       </div>
       <div class="result-form">
-        <%= f.number_field :result, class:"textarea", maxlength:"2" %>回
+        <%= f.number_field :result, value: @plan.target, class:"textarea", min:"1" %>回
       </div>
       <div class="actions">
-        <%= f.submit "　記録　" %>
+        <%= f.submit "　保存　" %>
       </div>
     <% end %>
   </div>

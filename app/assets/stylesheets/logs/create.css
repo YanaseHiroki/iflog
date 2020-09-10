@@ -1,0 +1,10 @@
+.image img {
+  width: 90vw;
+  max-width: 32em ;
+  margin-bottom: .5em;
+
+  border-radius: .5em;
+  box-shadow:
+  -1px 1px 2px 0.5px rgb(175, 175, 175),
+  inset -2px 2px 4px 2px rgb(253, 251, 248);
+}

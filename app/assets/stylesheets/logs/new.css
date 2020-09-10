@@ -1,7 +1,6 @@
 .summary {
   width: 90vw;
   max-width: 32em;
-  margin: 2em .3em;
   padding: .3em;
 
   text-align: center;
@@ -15,11 +14,8 @@
   inset -2px 2px 4px 2px rgb(253, 251, 248);
 }
 
-.date-form {
-}
-
-.date-form select {
-  margin: 1.5em .1em .5em;
-  padding: .4em;
+.date-form input {
+  margin: 1em .6em .5em;
+  padding: .1em .5em;
   border-radius: 1.5em;
 }

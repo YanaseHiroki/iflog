@@ -3,7 +3,7 @@ class Log < ApplicationRecord
     # validates :user_id
     validates :user_id
     validates :plan_id
-    validates :date
+    validates :date, uniqueness: true
     validates :result
   end
 
