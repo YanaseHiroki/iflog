@@ -24,11 +24,11 @@
 ## DEMO
 主な機能を実際に利用する様子を御覧ください！
 
-[アカウントを作成する](https://gyazo.com/7dadca602e43692e50d5f37eba81ec20)
-[習慣化するための計画を作成する](https://gyazo.com/27e0e8f975382d857200201b6c8ef1e8)
-[計画を編集する](https://gyazo.com/b15ff1b1f4c642754b89f8ddcd67d5cd)
-[記録を作成する](https://gyazo.com/c084e23f63317a126e58a009e0a39c82)
-[達成率を確認する](https://gyazo.com/2bf036149cd20eb384d6744363b1ab04)
+- [アカウントを作成する](https://gyazo.com/7dadca602e43692e50d5f37eba81ec20)
+- [習慣化するための計画を作成する](https://gyazo.com/27e0e8f975382d857200201b6c8ef1e8)
+- [計画を編集する](https://gyazo.com/b15ff1b1f4c642754b89f8ddcd67d5cd)
+- [記録を作成する](https://gyazo.com/c084e23f63317a126e58a009e0a39c82)
+- [達成率を確認する](https://gyazo.com/2bf036149cd20eb384d6744363b1ab04)
 
 
 ## 工夫したポイント
