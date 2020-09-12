@@ -2,7 +2,7 @@ class PlansController < ApplicationController
   before_action :find_plan, only: [:show, :edit, :update, :destroy]
 
   def index
-    @plans = Plan.all
+    @plans = Plan.where(user_id: current_user.id)
   end
 
   def new
@@ -22,7 +22,7 @@ class PlansController < ApplicationController
     require 'date'
     @day = Date.today - 6
     target = @plan.target
-    @logs = Log.where(plan_id: params[:id])
+    @logs = Log.where(plan_id: params[:id], user_id: current_user.id)
     scores = []
     7.times do |i|
       result = @logs.find_by(date: Date.today - i)

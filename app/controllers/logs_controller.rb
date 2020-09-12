@@ -45,7 +45,7 @@ class LogsController < ApplicationController
     end
       # 連続日数を表示
     @days = 0
-    @logs = Log.where(user_id: current_user.id, plan: @plan.id).order(date: "DESC")
+    @logs = Log.where(user_id: current_user.id, plan: @plan.id)
     # 連続で実践した日数を調べる
     @yesterday = Date.today - 1
     while @logs.find_by(date: @yesterday).nil? == false
