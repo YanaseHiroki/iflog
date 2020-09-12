@@ -20,6 +20,23 @@ ja:
         created_at: 登録日時
         updated_at: 更新日時
         remember_me: ログインを記憶する
+    models:
+      user: ユーザー
+      plan: 計画
+      log: 記録
+    attributes:
+      user:
+        name: ユーザー名
+        image: 記録完了時の画像
+        email: メールアドレス
+        password: パスワード
+      plan:
+        habit: 身につけたい習慣
+        trigger: きっかけの行動
+        target: 目標回数
+      log:
+        result: 実践した回数
+        date: 日にち
   date:
     abbr_day_names:
     - 日

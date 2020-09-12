@@ -13,22 +13,23 @@
     <%# end %>
     <%#  %>
     </div>
+    <div class="message">
+      <% if @days > 0 %>
+        <%= "今日で#{@days + 1}日連続です！" %><br>
+        この調子で続けていきましょう！
+      <% elsif @days < 0 %>
+        <%= "今日は#{-@days}日ぶりです！" %><br>
+        これから続けていきましょう！
+      <% else %>
+        1日目です！<br>
+        これから続けていきましょう！
+      <% end %>
+    </div>
     <div class="summary">
       <%= "１日#{@plan.target}回、#{@plan.trigger}#{@plan.habit}" %>
     </div>
 
     <%= render "shared/table" %>
-    <%# 最近の7日間の達成回数を表示する %>
-    <% if @days > 0 %>
-      <%= "今日で#{@days + 1}日連続です！" %><br>
-      この調子で続けていきましょう！
-    <% elsif @days < 0 %>
-      <%= "今日は#{-@days}日ぶりです！" %><br>
-      これから続けていきましょう！
-    <% else %>
-      1日目です！<br>
-      これから続けていきましょう！
-    <% end %>
     <%= link_to "記録を追加する", new_plan_log_path(@plan.id), method: :get, class: "hyper-link" %>
   </div>
 </main>

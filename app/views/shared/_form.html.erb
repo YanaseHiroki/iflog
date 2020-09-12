@@ -1,13 +1,14 @@
     <%= form_with  model: @plan, local: true do |f| %>
       <div class="target">
-        １日の目標回数　：<%= f.number_field :target, class:"textarea", placeholder:"1日の目標回数", maxlength:"2" %>回
+        １日の目標回数　：<%= f.number_field :target, class:"textarea", placeholder:"1日の目標回数",value: "1", min:"1" %>回
       </div>
       <div class="trigger">
-        きっかけの行動　：<%= f.text_area :trigger, class:"textarea", placeholder:"(例)日常的な行動をしたら", maxlength:"20" %>
+        きっかけの行動　：<%= f.text_area :trigger, class:"textarea", placeholder:"日常的な行動をしたら", maxlength:"20" %>
       </div>
       <div class="habit">
         身につけたい習慣：<%= f.text_area :habit, class:"textarea", placeholder:"身につけたい習慣をする", maxlength:"20" %>
       </div>
+      <%= render 'shared/error_messages', model: f.object %>
       <div class="actions">
         <%= f.submit "　保存　" %>
       </div>

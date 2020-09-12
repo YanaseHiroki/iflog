@@ -19,3 +19,8 @@
   padding: .1em .5em;
   border-radius: 1.5em;
 }
+
+.result-form {
+  display: flex;
+  align-items: center;
+}

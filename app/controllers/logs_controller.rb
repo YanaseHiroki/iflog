@@ -17,7 +17,7 @@ class LogsController < ApplicationController
     7.times do |i|
       result = @logs.find_by(date: @day + i)
       if result.nil?
-        scores[i] = ''
+        scores[i] = '　'
       else
         scores[i] = result.result
       end
@@ -29,26 +29,32 @@ class LogsController < ApplicationController
   def create
     # 記録を作成
     @log = Log.new(log_params)
-    
-    # for shared/table
-    require 'date'
-    @day = Date.today - 6
-    target = @plan.target
-    @logs = Log.where(plan_id: @plan.id)
-    scores = []
-    7.times do |i|
-      result = @logs.find_by(date: @day + i)
-      if result.nil?
-        scores[i] = ''
-      else
-        scores[i] = result.result
-      end
+    # 記録を保存
+    params_date =  params[:log][:date]
+    params_result =  params[:log][:result]
+    if @log.valid?
+      @log.save
+      result_table
+    elsif params_date.blank? || params_result.blank?
+      result_table
+      render :new
+    else
+      @log = Log.find_by(user_id: current_user.id, plan: @plan.id, date: params_date)
+      @log.update(log_params)
+      result_table
     end
-    @scores = scores
-    # 連続日数を表示
+      # 連続日数を表示
     @days = 0
-    @yesterday = @log.date - 1
-    while Log.find_by(date: @yesterday).nil?
+    @logs = Log.where(user_id: current_user.id, plan: @plan.id).order(date: "DESC")
+    # 連続で実践した日数を調べる
+    @yesterday = Date.today - 1
+    while @logs.find_by(date: @yesterday).nil? == false
+      @yesterday -= 1
+      @days += 1
+    end
+    # ブランクの日数を調べる
+    @yesterday = Date.today - 1
+    while @logs.find_by(date: @yesterday).nil?
       @yesterday -= 1
       @days -= 1
       if @yesterday < @log.date - 100
@@ -56,26 +62,9 @@ class LogsController < ApplicationController
         break
       end
     end
-    @yesterday = Date.today - 1
-    while Log.find_by(date: @yesterday).nil? == false
-      @yesterday -= 1
-      @days += 1
-    end
-    @user = User.find_by_id(current_user.id)
-    # 記録を保存
-    if @log.valid?
-      @log.save
-    else
-      render :edit
-    end
   end
   
-  def show
-  end
-  
-  def edit
-
-    @log = Log.new
+  def result_table
     # for shared/table
     require 'date'
     @day = Date.today - 6
@@ -85,13 +74,32 @@ class LogsController < ApplicationController
     7.times do |i|
       result = @logs.find_by(date: @day + i)
       if result.nil?
-        scores[i] = ''
+        scores[i] = '　'
       else
         scores[i] = result.result
       end
     end
     @scores = scores
   end
+  
+  # def edit
+  #   @log = Log.find_by(params[:date])
+  #   # for shared/table
+  #   require 'date'
+  #   @day = Date.today - 6
+  #   target = @plan.target
+  #   @logs = Log.where(plan_id: @plan.id)
+  #   scores = []
+  #   7.times do |i|
+  #     result = @logs.find_by(date: @day + i)
+  #     if result.nil?
+  #       scores[i] = '　'
+  #     else
+  #       scores[i] = result.result
+  #     end
+  #   end
+  #   @scores = scores
+  # end
   
   def update
     @log.update(log_params)
