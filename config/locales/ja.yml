@@ -30,6 +30,10 @@ ja:
         image: 記録完了時の画像
         email: メールアドレス
         password: パスワード
+        password_confirmation: パスワード（確認）
+        created_at: 登録日時
+        updated_at: 更新日時
+        remember_me: ログイン情報を保存する
       plan:
         habit: 身につけたい習慣
         trigger: きっかけの行動
