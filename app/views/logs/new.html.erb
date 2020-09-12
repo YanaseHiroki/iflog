@@ -15,7 +15,7 @@
         <%= f.date_field :date, value:Date.today %>
       </div>
       <div class="result-form">
-        <%= f.number_field :result, value: @plan.target, class:"textarea", min:"1" %>回
+        <%= f.number_field :result,autofocus: true, value: @plan.target, class:"textarea", min:"1" %>回
       </div>
       <%= render 'shared/error_messages', model: f.object %>
       <div class="actions">

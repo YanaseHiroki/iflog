@@ -8,32 +8,32 @@
       <%= render "users/shared/error_messages", resource: resource %>
 
       <div class="field">
-        <%= f.label :name %><br />
-        <%= f.text_area :name, class:"textarea", autofocus: true, autocomplete: "name" %>
+        <%= f.label :name %><br>
+        <%= f.text_area :name, placeholder:"必須", class:"textarea", autofocus: true, autocomplete: "name" %>
       </div>
 
       <div class="field">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        <%= f.label :email %><br>
+        <%= f.email_field :email, placeholder:"必須", autocomplete: "email" %>
       </div>
 
       <div class="field">
         <%= f.label :password %>
         <% if @minimum_password_length %>
         <em>(<%= @minimum_password_length %>文字以上)</em>
-        <% end %><br />
-        <%= f.password_field :password, placeholder:"英数字を含む", autocomplete: "new-password" %>
+        <% end %><br>
+        <%= f.password_field :password, placeholder:"半角英＋数字を含む", autocomplete: "new-password" %>
       </div>
 
       <div class="field">
-        <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        <%= f.label :password_confirmation %><br>
+        <%= f.password_field :password_confirmation, placeholder:"再度入力", autocomplete: "new-password" %>
       </div><br />
 
       <div class="actions">
         <%= f.submit "　登録　" %>
       </div>
-    <% end %><br />
+    <% end %><br>
     
     <%= render "users/shared/links"   %>
   </div>
