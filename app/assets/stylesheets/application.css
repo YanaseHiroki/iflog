@@ -22,10 +22,18 @@ html {
   background-color: rgb(250, 240, 225);
 }
 
-body {
-  height: 100%; 
-  
-  font-size: 1.5em;
+@media only screen and (min-aspect-ratio:1/10) {
+  body {
+    height: 100%; 
+    font-size: calc(100vw / 23);
+  }
+}
+
+@media only screen and (min-aspect-ratio:5/8) {
+  body {
+    height: 100%; 
+    font-size: 1.5em;
+  }
 }
   
 header {
