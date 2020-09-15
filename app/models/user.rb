@@ -10,6 +10,7 @@ class User < ApplicationRecord
     validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze }
   end
 
+  has_one_attached :image
   has_many :plans, foreign_key: :user_id, dependent: :destroy
   has_many :logs, foreign_key: :user_id, dependent: :destroy
 end
