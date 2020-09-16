@@ -38,7 +38,6 @@ ActiveRecord::Schema.define(version: 2020_09_15_142742) do
     t.bigint "plan_id", null: false
     t.integer "result", null: false
     t.date "date", null: false
-    t.string "image", default: ""
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["plan_id"], name: "index_logs_on_plan_id"
@@ -57,6 +56,7 @@ ActiveRecord::Schema.define(version: 2020_09_15_142742) do
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", default: "", null: false
+    t.string "image", default: "", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"

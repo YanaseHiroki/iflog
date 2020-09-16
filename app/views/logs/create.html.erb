@@ -5,13 +5,12 @@
       <h1 class="title">今日もおつかれさまでした！</h1>
     </div>
     <div class="image">
-    <%# if @user.image.any? %>
     <%# Userテーブルに画像のカラムを追加してここでuploadして表示 %>
-    <%# @user.image %>
-    <%# else %>
-    <%= image_tag 'latte-art.jpg' %>
-    <%# end %>
-    <%#  %>
+    <% if @user.image.attached? %>
+      <%= image_tag @user.image %>
+    <% else %>
+      <%= image_tag 'latte-art.jpg' %>
+    <% end %>
     </div>
     <div class="message">
       <% if @days > 0 %>
@@ -31,5 +30,6 @@
 
     <%= render "shared/table" %>
     <%= link_to "記録を追加する", new_plan_log_path(@plan.id), method: :get, class: "hyper-link" %>
+    <%= link_to "達成率を振り返る", plan_path(@plan.id), method: :get, class: "hyper-link" %><br>
   </div>
 </main>

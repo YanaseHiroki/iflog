@@ -29,6 +29,7 @@ class LogsController < ApplicationController
   def create
     # 記録を作成
     @log = Log.new(log_params)
+    @user = User.find(current_user.id)
     # 記録を保存
     params_date =  params[:log][:date]
     params_result =  params[:log][:result]
@@ -43,7 +44,7 @@ class LogsController < ApplicationController
       @log.update(log_params)
       result_table
     end
-      # 連続日数を表示
+    # 連続日数を表示
     @days = 0
     @logs = Log.where(user_id: current_user.id, plan: @plan.id)
     # 連続で実践した日数を調べる

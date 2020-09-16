@@ -73,7 +73,7 @@
 | Column   | Type   | Options     |
 | -------- | ------ | ----------- |
 | name     | string | null: false |
-| image    | string | null: false |
+| image    | string |             |
 | email    | string | null: false |
 | password | string | null: false |
 
