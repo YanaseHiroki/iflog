@@ -5,7 +5,7 @@
       <h1 class="title">アカウント</h1>
     </div>
     <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "hyper-link" %>
-    <%= link_to "ユーザー名と画像を変更する", edit_user_path, class: "hyper-link" %>
+    <%# <%= link_to "ユーザー名と画像を変更する", edit_user_path, class: "hyper-link" %>
     <%= link_to "アカウントを削除する", user_registration_path, method: :delete, data: { confirm: "アカウントを削除しますか？" }, class: "hyper-link" %>
     <%# <%= link_to "パスワードを変更する(実装予定)", new_user_password_path, class: "hyper-link" %>
   </div>
