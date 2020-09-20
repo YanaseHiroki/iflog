@@ -4,11 +4,14 @@
     <div class="title-container">
       <h1 class="title">目標回数の達成率</h1>
     </div>
+    <div class="summary">
+      <%= "１日#{@plan.target}回、#{@plan.trigger}#{@plan.habit}" %>
+    </div>
     <div class="achievement">
       Ave.<span class="average"><%= @scores.sum / @scores.size %></span>
     </div>
     <%= render "shared/table" %>
-    <%= render "shared/plan" %>
+    <%= link_to "記録をする", new_plan_log_path(@plan.id), class: " hyper-link" %>
     <%= link_to "計画を編集する", edit_plan_path(params[:id]), class: " hyper-link" %>
   </div>
 </main>

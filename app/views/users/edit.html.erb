@@ -5,16 +5,18 @@
       <h1 class="title">記録したときの画像を変更する</h1>
     </div>
     <%= form_with  model: @user, local: true do |f| %>
-      <div class="field">
-        <%= f.label :image %>
-        <%= f.file_field :image, autocomplete: "image" %>
-      </div>
+      <%= f.hidden_field :name, value: @user.name %>
       <div class="image">
       <% if @user.image.attached? %>
         <%= image_tag @user.image %>
       <% else %>
         <%= image_tag 'latte-art.jpg' %>
       <% end %>
+      </div>
+      <%= render 'shared/error_messages', model: f.object %>
+      <div class="field">
+        <%= f.label :image %>
+        <%= f.file_field :image, value: @user.image %>
       </div>
       <%= render 'shared/error_messages', model: f.object %>
       <div class="actions">
