@@ -12,7 +12,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      render :show
+      redirect_to user_path(id: current_user.id)
     else
       redirect_to request.referer
     end
