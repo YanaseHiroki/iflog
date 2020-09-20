@@ -7,6 +7,8 @@ class UsersController < ApplicationController
   def update
     if @user.valid?
       @user.update
+    else
+      render :edit
     end
   end
 end
